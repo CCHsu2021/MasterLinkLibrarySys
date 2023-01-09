@@ -27,7 +27,7 @@ public partial class LibraryContext : DbContext
 
         modelBuilder.Entity<BookList>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__BookList__3214EC07B1E2EA45");
+            entity.HasKey(e => e.Id).HasName("PK__BookList__3214EC07281B654D");
 
             entity.ToTable("BookList");
 
@@ -36,7 +36,7 @@ public partial class LibraryContext : DbContext
 
         modelBuilder.Entity<BookStatement>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__BookStat__3214EC07F714251C");
+            entity.HasKey(e => e.Id).HasName("PK__BookStat__3214EC073371B407");
 
             entity.ToTable("BookStatement");
 
@@ -57,7 +57,7 @@ public partial class LibraryContext : DbContext
 
         modelBuilder.Entity<LibraryUser>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__LibraryU__3214EC070516C2A9");
+            entity.HasKey(e => e.Id).HasName("PK__LibraryU__3214EC07989A65DC");
 
             entity.Property(e => e.Id).ValueGeneratedNever();
             entity.Property(e => e.Email)
