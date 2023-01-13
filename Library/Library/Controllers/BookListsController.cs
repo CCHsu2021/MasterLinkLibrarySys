@@ -21,7 +21,7 @@ namespace Library.Controllers
         // GET: BookLists
         public async Task<IActionResult> Index()
         {
-              return View(await _context.BookLists.ToListAsync());
+            return View(await _context.BookLists.ToListAsync());
         }
 
         // GET: BookLists/Details/5
@@ -53,8 +53,10 @@ namespace Library.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,BookName,BookClassification,Author")] BookList bookList)
+        public async Task<IActionResult> Create([Bind("BookName,BookClassification,Author")] BookList bookList)
         {
+            var newId = GetBookId(bookList.BookClassification);
+            bookList.Id = newId;
             if (ModelState.IsValid)
             {
                 _context.Add(bookList);
@@ -62,6 +64,17 @@ namespace Library.Controllers
                 return RedirectToAction(nameof(Index));
             }
             return View(bookList);
+        }
+
+        private int GetBookId(string classification)
+        {
+            var lastNum = _context.BookLists
+                .OrderByDescending(b=> b.Id)
+                .Where(c => c.BookClassification == classification)
+                .Select(b => b.Id)
+                .FirstOrDefault();
+            if (lastNum == 0) return 1;
+            return lastNum + 1;
         }
 
         // GET: BookLists/Edit/5
