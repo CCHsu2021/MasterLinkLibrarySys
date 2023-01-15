@@ -17,5 +17,5 @@ public partial class BookStatement
 
     public virtual BookList Book { get; set; } = null!;
 
-    public virtual LibraryUser Borrower { get; set; } = null!;
+    public virtual ApplicationUser Borrower { get; set; } = null!;
 }

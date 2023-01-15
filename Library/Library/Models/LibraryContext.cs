@@ -19,7 +19,7 @@ public partial class LibraryContext : DbContext
 
     public virtual DbSet<BookStatement> BookStatements { get; set; }
 
-    public virtual DbSet<LibraryUser> LibraryUsers { get; set; }
+    public virtual DbSet<ApplicationUser> LibraryUsers { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -55,7 +55,7 @@ public partial class LibraryContext : DbContext
                 .HasConstraintName("FK__BookState__Borro__619B8048");
         });
 
-        modelBuilder.Entity<LibraryUser>(entity =>
+        modelBuilder.Entity<ApplicationUser>(entity =>
         {
             entity.HasKey(e => e.Id).HasName("PK__LibraryU__3214EC07989A65DC");
 

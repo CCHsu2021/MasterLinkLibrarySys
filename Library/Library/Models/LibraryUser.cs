@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Library.Models;
 
-public partial class LibraryUser
+public partial class ApplicationUser
 {
     public Guid Id { get; set; }
 
