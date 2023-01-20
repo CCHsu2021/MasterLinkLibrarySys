@@ -24,24 +24,6 @@ namespace Library.Controllers
               return View(await _context.LibraryUsers.ToListAsync());
         }
 
-        // GET: LibraryUsers/Details/5
-        public async Task<IActionResult> Details(Guid? id)
-        {
-            if (id == null || _context.LibraryUsers == null)
-            {
-                return NotFound();
-            }
-
-            var libraryUser = await _context.LibraryUsers
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (libraryUser == null)
-            {
-                return NotFound();
-            }
-
-            return View(libraryUser);
-        }
-
         // GET: LibraryUsers/Create
         public IActionResult Create()
         {
@@ -58,12 +40,24 @@ namespace Library.Controllers
             if (ModelState.IsValid)
             {
                 libraryUser.Id = Guid.NewGuid();
+                var user = _context.LibraryUsers.First(u => u.Email == libraryUser.Email);
+                if(user != null)
+                {                 
+                    return Content("該郵箱已被註冊");
+                }
                 _context.Add(libraryUser);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
             return View(libraryUser);
         }
+
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public async Task<IActionResult> Login([FromForm])
+        //{
+
+        //}
 
         // GET: LibraryUsers/Edit/5
         public async Task<IActionResult> Edit(Guid? id)

@@ -1,4 +1,4 @@
-﻿@model Library.Models.UserCreateDto
+﻿@model Library.ViewModels.UserCreateViewModel
 
 @{
     ViewData["Title"] = "Create";
@@ -27,11 +27,11 @@
                 <input asp-for="Secret" class="form-control" />
                 <span asp-validation-for="Secret" class="text-danger"></span>
             </div>
-@*            <div class="form-group">
-                <label asp-for="Secret" class="control-label">密码确认</label>
-                <input id="SecretRe" name="Secret" class="form-control" />
-                <span asp-validation-for="Secret" class="text-danger"></span>
-            </div>*@
+            <div class="form-group">
+                <label asp-for="SecretRe" class="control-label">密码确认</label>
+                <input asp-for="SecretRe" class="form-control" />
+                <span asp-validation-for="SecretRe" class="text-danger"></span>
+            </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>
