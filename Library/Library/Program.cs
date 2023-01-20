@@ -36,11 +36,11 @@ if (!app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseSwaggerUI(c =>
-{
-    c.SwaggerEndpoint("./v1/swagger.json", "My API V1");
-    c.RoutePrefix = "";
-});
+//app.UseSwaggerUI(c =>
+//{
+//    c.SwaggerEndpoint("./v1/swagger.json", "My API V1");
+//    c.RoutePrefix = "";
+//});
 
 app.UseDeveloperExceptionPage();
 
