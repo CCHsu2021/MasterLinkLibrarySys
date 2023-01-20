@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Library.Models;
+using Library.ViewModels;
 
 namespace Library.Controllers
 {
@@ -40,7 +41,7 @@ namespace Library.Controllers
             if (ModelState.IsValid)
             {
                 libraryUser.Id = Guid.NewGuid();
-                var user = _context.LibraryUsers.First(u => u.Email == libraryUser.Email);
+                var user = _context.LibraryUsers.FirstOrDefault(u => u.Email == libraryUser.Email);
                 if(user != null)
                 {                 
                     return Content("該郵箱已被註冊");
@@ -52,12 +53,31 @@ namespace Library.Controllers
             return View(libraryUser);
         }
 
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public async Task<IActionResult> Login([FromForm])
-        //{
+        public IActionResult Login()
+        {
+            return View();
+        }
 
-        //}
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Login([FromForm]LoginViewModel login)
+        {
+            if (ModelState.IsValid)
+            {
+                var user = await _context.LibraryUsers.FirstOrDefaultAsync(u => u.Email == login.Email);
+                if(user != null)
+                {
+                    if(login.Password == user.Secret)
+                    {
+                        ViewBag.User = user.Name;
+                        ViewBag.Email = user.Email;
+                        return RedirectToAction(nameof(Index));
+                    }
+                    return Content("密碼錯誤");
+                }
+            }
+            return Content("查無此帳號，請註冊");
+        }
 
         // GET: LibraryUsers/Edit/5
         public async Task<IActionResult> Edit(Guid? id)
