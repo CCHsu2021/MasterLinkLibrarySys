@@ -7,6 +7,10 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Library.Models;
 using Library.ViewModels;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
+using System.Text;
+using System.Security.Cryptography;
+using Microsoft.AspNetCore.Identity;
 
 namespace Library.Controllers
 {
@@ -22,7 +26,7 @@ namespace Library.Controllers
         // GET: LibraryUsers
         public async Task<IActionResult> Index()
         {
-              return View(await _context.LibraryUsers.ToListAsync());
+            return View(await _context.LibraryUsers.ToListAsync());
         }
 
         // GET: LibraryUsers/Create
@@ -40,18 +44,21 @@ namespace Library.Controllers
         {
             if (ModelState.IsValid)
             {
-                libraryUser.Id = Guid.NewGuid();
-                var user = _context.LibraryUsers.FirstOrDefault(u => u.Email == libraryUser.Email);
-                if(user != null)
-                {                 
-                    return Content("該郵箱已被註冊");
-                }
-                _context.Add(libraryUser);
-                await _context.SaveChangesAsync();
+                var newUser = new User { Name = libraryUser.Name, Email = libraryUser.Email };
+                var result = await CreateNewUser(newUser, libraryUser.Secret);
+                //if (result == true)
+                //{
+                //    var code = GenerateEmailConfirmationTokenAsync(libraryUser.Id);
+                //}
                 return RedirectToAction(nameof(Index));
             }
             return View(libraryUser);
         }
+
+        //private object GenerateEmailConfirmationTokenAsync(Guid id)
+        //{
+            
+        //}
 
         public IActionResult Login()
         {
@@ -60,14 +67,15 @@ namespace Library.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Login([FromForm]LoginViewModel login)
+        public async Task<IActionResult> Login([FromForm] LoginViewModel login)
         {
             if (ModelState.IsValid)
             {
                 var user = await _context.LibraryUsers.FirstOrDefaultAsync(u => u.Email == login.Email);
-                if(user != null)
+                if (user != null)
                 {
-                    if(login.Password == user.Secret)
+                    var password = HashSHA256(login.Password);
+                    if (password == user.Secret)
                     {
                         ViewBag.User = user.Name;
                         ViewBag.Email = user.Email;
@@ -162,14 +170,46 @@ namespace Library.Controllers
             {
                 _context.LibraryUsers.Remove(libraryUser);
             }
-            
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool LibraryUserExists(Guid id)
         {
-          return _context.LibraryUsers.Any(e => e.Id == id);
+            return _context.LibraryUsers.Any(e => e.Id == id);
+        }
+
+        private async Task<bool> CreateNewUser(User newUser, string password)
+        {
+            var libraryUser = new LibraryUser();
+            libraryUser.Id = Guid.NewGuid();
+            var user = _context.LibraryUsers.FirstOrDefault(u => u.Email == libraryUser.Email);
+            if (user != null)
+            {
+                return false;
+            }
+            
+            libraryUser.Name = newUser.Name;
+            libraryUser.Email = newUser.Email;
+            libraryUser.Secret = HashSHA256(password);
+
+            _context.Add(libraryUser);
+            await _context.SaveChangesAsync();
+            return true;
+        }
+
+        private string HashSHA256(string password)
+        {
+            var strbuilder = new StringBuilder();
+            using var hash = new SHA256Managed();
+            var enc = Encoding.UTF8;
+            var result = hash.ComputeHash(enc.GetBytes(password));
+            foreach (byte b in result)
+            {
+                strbuilder.Append(b.ToString("x2"));
+            }
+            return strbuilder.ToString();
         }
     }
 }
