@@ -47,7 +47,7 @@
 *.cmd
 .tmp_versions/
 */*/obj/*
-*/vs/*
+Library/.vs/*
 modules.order
 Module.symvers
 Mkfile.old
@@ -57,3 +57,4 @@ dkms.conf
 *.editorconfig
 *.v2
 appsettings.json
+appsettings.Development.json

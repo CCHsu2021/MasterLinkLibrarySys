@@ -11,6 +11,8 @@ using Microsoft.CodeAnalysis.CSharp.Syntax;
 using System.Text;
 using System.Security.Cryptography;
 using Microsoft.AspNetCore.Identity;
+using SendGrid.Helpers.Mail;
+using SendGrid;
 
 namespace Library.Controllers
 {
@@ -46,19 +48,14 @@ namespace Library.Controllers
             {
                 var newUser = new User { Name = libraryUser.Name, Email = libraryUser.Email };
                 var result = await CreateNewUser(newUser, libraryUser.Secret);
-                //if (result == true)
-                //{
-                //    var code = GenerateEmailConfirmationTokenAsync(libraryUser.Id);
-                //}
-                return RedirectToAction(nameof(Index));
+                if (result == true)
+                    //{
+                    //    var code = GenerateEmailConfirmationTokenAsync(libraryUser.Id);
+                    //}
+                    return RedirectToAction(nameof(Index));
             }
             return View(libraryUser);
         }
-
-        //private object GenerateEmailConfirmationTokenAsync(Guid id)
-        //{
-            
-        //}
 
         public IActionResult Login()
         {
@@ -201,6 +198,7 @@ namespace Library.Controllers
 
         private string HashSHA256(string password)
         {
+            password += "LI85EW5";
             var strbuilder = new StringBuilder();
             using var hash = new SHA256Managed();
             var enc = Encoding.UTF8;
