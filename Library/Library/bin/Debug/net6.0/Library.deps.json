@@ -8,8 +8,8 @@
     ".NETCoreApp,Version=v6.0": {
       "Library/1.0.0": {
         "dependencies": {
-          "Google.Apis.Auth": "1.58.0",
-          "Microsoft.AspNet.Identity.Owin": "2.2.1",
+          "Google.Apis.Auth": "1.59.0",
+          "Microsoft.AspNet.Identity.Core": "2.2.3",
           "Microsoft.EntityFrameworkCore": "7.0.1",
           "Microsoft.EntityFrameworkCore.SqlServer.Design": "1.1.6",
           "Microsoft.EntityFrameworkCore.SqlServer.NetTopologySuite": "7.0.1",
@@ -58,41 +58,41 @@
           }
         }
       },
-      "Google.Apis/1.58.0": {
+      "Google.Apis/1.59.0": {
         "dependencies": {
-          "Google.Apis.Core": "1.58.0"
+          "Google.Apis.Core": "1.59.0"
         },
         "runtime": {
           "lib/netstandard2.0/Google.Apis.dll": {
-            "assemblyVersion": "1.58.0.0",
-            "fileVersion": "1.58.0.0"
+            "assemblyVersion": "1.59.0.0",
+            "fileVersion": "1.59.0.0"
           }
         }
       },
-      "Google.Apis.Auth/1.58.0": {
+      "Google.Apis.Auth/1.59.0": {
         "dependencies": {
-          "Google.Apis": "1.58.0",
-          "Google.Apis.Core": "1.58.0"
+          "Google.Apis": "1.59.0",
+          "Google.Apis.Core": "1.59.0"
         },
         "runtime": {
           "lib/netstandard2.0/Google.Apis.Auth.PlatformServices.dll": {
-            "assemblyVersion": "1.58.0.0",
-            "fileVersion": "1.58.0.0"
+            "assemblyVersion": "1.59.0.0",
+            "fileVersion": "1.59.0.0"
           },
           "lib/netstandard2.0/Google.Apis.Auth.dll": {
-            "assemblyVersion": "1.58.0.0",
-            "fileVersion": "1.58.0.0"
+            "assemblyVersion": "1.59.0.0",
+            "fileVersion": "1.59.0.0"
           }
         }
       },
-      "Google.Apis.Core/1.58.0": {
+      "Google.Apis.Core/1.59.0": {
         "dependencies": {
           "Newtonsoft.Json": "13.0.2"
         },
         "runtime": {
           "lib/netstandard2.0/Google.Apis.Core.dll": {
-            "assemblyVersion": "1.58.0.0",
-            "fileVersion": "1.58.0.0"
+            "assemblyVersion": "1.59.0.0",
+            "fileVersion": "1.59.0.0"
           }
         }
       },
@@ -141,25 +141,11 @@
         }
       },
       "MessagePackAnalyzer/2.1.152": {},
-      "Microsoft.AspNet.Identity.Core/2.2.1": {
+      "Microsoft.AspNet.Identity.Core/2.2.3": {
         "runtime": {
           "lib/net45/Microsoft.AspNet.Identity.Core.dll": {
             "assemblyVersion": "2.0.0.0",
-            "fileVersion": "2.2.1.40403"
-          }
-        }
-      },
-      "Microsoft.AspNet.Identity.Owin/2.2.1": {
-        "dependencies": {
-          "Microsoft.AspNet.Identity.Core": "2.2.1",
-          "Microsoft.Owin.Security": "2.1.0",
-          "Microsoft.Owin.Security.Cookies": "2.1.0",
-          "Microsoft.Owin.Security.OAuth": "2.1.0"
-        },
-        "runtime": {
-          "lib/net45/Microsoft.AspNet.Identity.Owin.dll": {
-            "assemblyVersion": "2.0.0.0",
-            "fileVersion": "2.2.1.40403"
+            "fileVersion": "2.2.3.11125"
           }
         }
       },
@@ -1323,56 +1309,6 @@
           }
         }
       },
-      "Microsoft.Owin/2.1.0": {
-        "dependencies": {
-          "Owin": "1.0.0"
-        },
-        "runtime": {
-          "lib/net45/Microsoft.Owin.dll": {
-            "assemblyVersion": "2.1.0.0",
-            "fileVersion": "2.1.30113.529"
-          }
-        }
-      },
-      "Microsoft.Owin.Security/2.1.0": {
-        "dependencies": {
-          "Microsoft.Owin": "2.1.0",
-          "Owin": "1.0.0"
-        },
-        "runtime": {
-          "lib/net45/Microsoft.Owin.Security.dll": {
-            "assemblyVersion": "2.1.0.0",
-            "fileVersion": "2.1.30113.529"
-          }
-        }
-      },
-      "Microsoft.Owin.Security.Cookies/2.1.0": {
-        "dependencies": {
-          "Microsoft.Owin": "2.1.0",
-          "Microsoft.Owin.Security": "2.1.0",
-          "Owin": "1.0.0"
-        },
-        "runtime": {
-          "lib/net45/Microsoft.Owin.Security.Cookies.dll": {
-            "assemblyVersion": "2.1.0.0",
-            "fileVersion": "2.1.30113.529"
-          }
-        }
-      },
-      "Microsoft.Owin.Security.OAuth/2.1.0": {
-        "dependencies": {
-          "Microsoft.Owin": "2.1.0",
-          "Microsoft.Owin.Security": "2.1.0",
-          "Newtonsoft.Json": "13.0.2",
-          "Owin": "1.0.0"
-        },
-        "runtime": {
-          "lib/net45/Microsoft.Owin.Security.OAuth.dll": {
-            "assemblyVersion": "2.1.0.0",
-            "fileVersion": "2.1.30113.529"
-          }
-        }
-      },
       "Microsoft.SqlServer.Server/1.0.0": {
         "runtime": {
           "lib/netstandard2.0/Microsoft.SqlServer.Server.dll": {
@@ -1753,14 +1689,6 @@
           "lib/netstandard2.0/NuGet.Versioning.dll": {
             "assemblyVersion": "6.3.1.1",
             "fileVersion": "6.3.1.1"
-          }
-        }
-      },
-      "Owin/1.0.0": {
-        "runtime": {
-          "lib/net40/Owin.dll": {
-            "assemblyVersion": "1.0.0.0",
-            "fileVersion": "1.0.0.0"
           }
         }
       },
@@ -2726,26 +2654,26 @@
       "path": "azure.identity/1.6.0",
       "hashPath": "azure.identity.1.6.0.nupkg.sha512"
     },
-    "Google.Apis/1.58.0": {
+    "Google.Apis/1.59.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-OFIWLMbxL096T6L3b0cQLSQGAxRZWIZLNkjZtaYUQ5exz67aW7+Sd+OQnzdFGrV0yyTNlMOy+j6AqmdsenJHXA==",
-      "path": "google.apis/1.58.0",
-      "hashPath": "google.apis.1.58.0.nupkg.sha512"
+      "sha512": "sha512-1RJ9tY4tkm2M5IXGLHtJCxx+TLYujJ1mxn15l1ZrQXdR9O2fAYY/l8j2p53ZJJFVTybo5XIM4FuCJyW8wVcIsw==",
+      "path": "google.apis/1.59.0",
+      "hashPath": "google.apis.1.59.0.nupkg.sha512"
     },
-    "Google.Apis.Auth/1.58.0": {
+    "Google.Apis.Auth/1.59.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-8HAVH23c/O6ODdpedkw/2B3VqG4YKEMk0v0Sb6tEz7GRaiqGwdMntytr7iez0iFvCFDA5SkHnYDCNCIztnSMhA==",
-      "path": "google.apis.auth/1.58.0",
-      "hashPath": "google.apis.auth.1.58.0.nupkg.sha512"
+      "sha512": "sha512-zPZoEwf+Fi26YUAfN/HUyhThPneUQFwtT+RJHLAEfTm1CpPu4nCWDP0Hwx796o57WxvVrffzj0bsjBHsdFHDWg==",
+      "path": "google.apis.auth/1.59.0",
+      "hashPath": "google.apis.auth.1.59.0.nupkg.sha512"
     },
-    "Google.Apis.Core/1.58.0": {
+    "Google.Apis.Core/1.59.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-e1QpJz6hMuxN7Whm9ORl98dV9/6kM4UC+zNHGFO/S7OVV4wglFkix9DMidzdEmo3AGrs9KZSk69N+rYHJKqn+A==",
-      "path": "google.apis.core/1.58.0",
-      "hashPath": "google.apis.core.1.58.0.nupkg.sha512"
+      "sha512": "sha512-LouWN5JzAJnOVbK3bLTX9WzIppggO1kE8u8PNe5fTLMLVzGzjqpDcbtJc15tGgUHzUVSZaSOdLWWegjH57fluw==",
+      "path": "google.apis.core/1.59.0",
+      "hashPath": "google.apis.core.1.59.0.nupkg.sha512"
     },
     "Humanizer.Core/2.14.1": {
       "type": "package",
@@ -2782,19 +2710,12 @@
       "path": "messagepackanalyzer/2.1.152",
       "hashPath": "messagepackanalyzer.2.1.152.nupkg.sha512"
     },
-    "Microsoft.AspNet.Identity.Core/2.2.1": {
+    "Microsoft.AspNet.Identity.Core/2.2.3": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-jjurNglpmcv0SLBd4Fmar8ZoJ2yqfTf6iuP3p8wVH7Nvanfo8l3qTBzq3qRQz2BQlb6iXJiDWPjcnIImVz512g==",
-      "path": "microsoft.aspnet.identity.core/2.2.1",
-      "hashPath": "microsoft.aspnet.identity.core.2.2.1.nupkg.sha512"
-    },
-    "Microsoft.AspNet.Identity.Owin/2.2.1": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-Cz/dqC85+6bgPj9Mt1qGLJ+v8HdTqXTMe1ms4e8pzPXJjDJw3DK7XtimtDtWwiDs63vnIDgy195TByV9wxEwjA==",
-      "path": "microsoft.aspnet.identity.owin/2.2.1",
-      "hashPath": "microsoft.aspnet.identity.owin.2.2.1.nupkg.sha512"
+      "sha512": "sha512-Mv5FpoaxspE8hlWLE4r1IdZtovg/OyFgVRhxQbx47J4sqdLImN1hnM1lnwCj+/wLmqtqFk/RYMoZ5GAcwm/00g==",
+      "path": "microsoft.aspnet.identity.core/2.2.3",
+      "hashPath": "microsoft.aspnet.identity.core.2.2.3.nupkg.sha512"
     },
     "Microsoft.AspNetCore.Razor.Language/6.0.0": {
       "type": "package",
@@ -3188,34 +3109,6 @@
       "path": "microsoft.openapi/1.2.3",
       "hashPath": "microsoft.openapi.1.2.3.nupkg.sha512"
     },
-    "Microsoft.Owin/2.1.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-lk0kK64mlmcmtWX8YOYkZsnZKDoGEzMZhe8e1bcP+FFcgD4f2QfKwvu5Z8Bh8WS0VO7Rgk+DJ0hwW0k+S/UGMg==",
-      "path": "microsoft.owin/2.1.0",
-      "hashPath": "microsoft.owin.2.1.0.nupkg.sha512"
-    },
-    "Microsoft.Owin.Security/2.1.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-4n1V0p+O6W1L0xHUM8Cjp2Y+MmmUkiCZv6PvRNIDCJD9zlerBJa2HECo9lUiWC+KuasQJ3QxB1FmipNBxdXXIQ==",
-      "path": "microsoft.owin.security/2.1.0",
-      "hashPath": "microsoft.owin.security.2.1.0.nupkg.sha512"
-    },
-    "Microsoft.Owin.Security.Cookies/2.1.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-P+3cjwBpUDGF+5s+oMfyySG0qvLqb71M+1q9jGSsaF0qCg14ix0qF5pEV6IqhGUEgV40E/1K4hDcWjS+essVoQ==",
-      "path": "microsoft.owin.security.cookies/2.1.0",
-      "hashPath": "microsoft.owin.security.cookies.2.1.0.nupkg.sha512"
-    },
-    "Microsoft.Owin.Security.OAuth/2.1.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-jR/LoeV02Cne9IV6fG4L9KR+uofPLokq6sxGy4bBDxLAAmZ35y0H/NiV6riqXSee6PypNAcJzTytJpYb0xK6Hw==",
-      "path": "microsoft.owin.security.oauth/2.1.0",
-      "hashPath": "microsoft.owin.security.oauth.2.1.0.nupkg.sha512"
-    },
     "Microsoft.SqlServer.Server/1.0.0": {
       "type": "package",
       "serviceable": true,
@@ -3411,13 +3304,6 @@
       "sha512": "sha512-T/igBDLXCd+pH3YTWgGVNvYSOwbwaT30NyyM9ONjvlHlmaUjKBJpr9kH0AeL+Ado4EJsBhU3qxXVc6lyrpRcMw==",
       "path": "nuget.versioning/6.3.1",
       "hashPath": "nuget.versioning.6.3.1.nupkg.sha512"
-    },
-    "Owin/1.0.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-OseTFniKmyp76mEzOBwIKGBRS5eMoYNkMKaMXOpxx9jv88+b6mh1rSaw43vjBOItNhaLFG3d0a20PfHyibH5sw==",
-      "path": "owin/1.0.0",
-      "hashPath": "owin.1.0.0.nupkg.sha512"
     },
     "Portable.BouncyCastle/1.9.0": {
       "type": "package",

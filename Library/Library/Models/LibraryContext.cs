@@ -19,7 +19,11 @@ public partial class LibraryContext : DbContext
 
     public virtual DbSet<BookStatement> BookStatements { get; set; }
 
-    public virtual DbSet<ApplicationUser> LibraryUsers { get; set; }
+    public virtual DbSet<LibraryUser> LibraryUsers { get; set; }
+
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
+        => optionsBuilder.UseSqlServer("Data Source=miachu.database.windows.net;Initial Catalog=Library;Persist Security Info=True;User ID=miachu;Password=sY.200415", x => x.UseNetTopologySuite());
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -52,12 +56,12 @@ public partial class LibraryContext : DbContext
             entity.HasOne(d => d.Borrower).WithMany(p => p.BookStatements)
                 .HasForeignKey(d => d.BorrowerId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__BookState__Borro__619B8048");
+                .HasConstraintName("FK__BookState__Borro__693CA210");
         });
 
-        modelBuilder.Entity<ApplicationUser>(entity =>
+        modelBuilder.Entity<LibraryUser>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__LibraryU__3214EC07989A65DC");
+            entity.HasKey(e => e.Id).HasName("PK__LibraryU__3214EC07478DF465");
 
             entity.Property(e => e.Id).ValueGeneratedNever();
             entity.Property(e => e.Email)
